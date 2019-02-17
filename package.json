@@ -1,0 +1,33 @@
+{
+  "name": "unique",
+  "version": "1.0.0",
+  "description": "A simple page for unicode funny manipulations",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "npx webpack-dev-server",
+    "build": "npx webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elnee/unique.git"
+  },
+  "keywords": [
+    "unicode",
+    "text",
+    "manipulations"
+  ],
+  "author": "Elnee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Elnee/unique/issues"
+  },
+  "homepage": "https://github.com/Elnee/unique#readme",
+  "dependencies": {
+    "vue": "^2.6.6"
+  },
+  "devDependencies": {
+    "webpack": "^4.29.4",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.1.14"
+  }
+}
