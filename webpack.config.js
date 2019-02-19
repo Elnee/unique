@@ -3,6 +3,11 @@ const path = require('path')
 module.exports = {
   mode: 'development',
   entry: './src/main.js',
+  resolve: {
+    alias: {
+      vue$: 'vue/dist/vue.esm.js'
+    }
+  },
   devServer: {
     contentBase: './dist'
   },
