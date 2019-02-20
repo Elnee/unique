@@ -6,6 +6,11 @@
 </head>
 <body>
   <div id="app">
+    <select v-model="currentMod">
+      <option v-for="option in options" :value="option.value">
+        {{ option.text }}
+      </option>
+    </select>
     <input v-model="text" type="text"> 
     <span>{{modifiedText}}</span>
     <button @click="copy">Copy</button>
