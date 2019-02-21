@@ -20,7 +20,7 @@ new Vue({
     text: 'Some placeholder',
     options: [
       { text: 'Crossed text', value: 'modCrossed' },
-      { text: 'Upsidedown text', value: 'modUpsidedown' },
+      { text: 'Upside Down text', value: 'modUpsideDown' },
     ]
   },
   created: function() {
@@ -33,7 +33,7 @@ new Vue({
       if (this.text.length === 1) return this.text + "\u0336"
       else return this.text.split("").join("\u0336")
     },
-    modUpsidedown: function() {
+    modUpsideDown: function() {
       let reversed = this.text.split('').reverse().join('')
 
       // Map of upside down symbols
