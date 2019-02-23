@@ -21,7 +21,8 @@ new Vue({
     options: [
       { text: 'Crossed text', value: 'modCrossed' },
       { text: 'Upside Down text', value: 'modUpsideDown' },
-      { text: 'Fullwidth', value: 'modFullwidth' }
+      { text: 'Fullwidth', value: 'modFullwidth' },
+      { text: 'Rounded', value: 'modRounded' }
     ]
   },
   created: function() {
@@ -207,6 +208,69 @@ new Vue({
 
       textArr.forEach((item, index, arr) => {
         if (fwMap.has(item)) arr[index] = fwMap.get(item)
+      })
+
+      return textArr.join('')
+    },
+    modRounded: function() {
+      let textArr = this.text.split('')
+
+      let roundedMap = new Map()
+      roundedMap.set('A', 'ᗩ')
+      roundedMap.set('B', 'ᗷ')
+      roundedMap.set('C', 'ᑕ')
+      roundedMap.set('D', 'ᗪ')
+      roundedMap.set('E', 'E')
+      roundedMap.set('F', 'ᖴ')
+      roundedMap.set('G', 'G')
+      roundedMap.set('H', 'ᕼ')
+      roundedMap.set('I', 'I')
+      roundedMap.set('J', 'ᒍ')
+      roundedMap.set('K', 'K')
+      roundedMap.set('L', 'ᒪ')
+      roundedMap.set('M', 'ᗰ')
+      roundedMap.set('N', 'ᑎ')
+      roundedMap.set('O', 'O')
+      roundedMap.set('P', 'ᑭ')
+      roundedMap.set('Q', 'ᑫ')
+      roundedMap.set('R', 'ᖇ')
+      roundedMap.set('S', 'ᔕ')
+      roundedMap.set('T', 'T')
+      roundedMap.set('U', 'ᑌ')
+      roundedMap.set('V', 'ᐯ')
+      roundedMap.set('W', 'ᗯ')
+      roundedMap.set('X', '᙭')
+      roundedMap.set('Y', 'Y')
+      roundedMap.set('Z', 'ᘔ')
+      roundedMap.set('a', 'ᗩ')
+      roundedMap.set('b', 'ᗷ')
+      roundedMap.set('c', 'ᑕ')
+      roundedMap.set('d', 'ᗪ')
+      roundedMap.set('e', 'E')
+      roundedMap.set('f', 'ᖴ')
+      roundedMap.set('g', 'G')
+      roundedMap.set('h', 'ᕼ')
+      roundedMap.set('i', 'I')
+      roundedMap.set('j', 'ᒍ')
+      roundedMap.set('k', 'K')
+      roundedMap.set('l', 'ᒪ')
+      roundedMap.set('m', 'ᗰ')
+      roundedMap.set('n', 'ᑎ')
+      roundedMap.set('o', 'O')
+      roundedMap.set('p', 'ᑭ')
+      roundedMap.set('q', 'ᑫ')
+      roundedMap.set('r', 'ᖇ')
+      roundedMap.set('s', 'ᔕ')
+      roundedMap.set('t', 'T')
+      roundedMap.set('u', 'ᑌ')
+      roundedMap.set('v', 'ᐯ')
+      roundedMap.set('w', 'ᗯ')
+      roundedMap.set('x', '᙭')
+      roundedMap.set('y', 'Y')
+      roundedMap.set('z', 'ᘔ')
+
+      textArr.forEach((item, index, arr) => {
+        if (roundedMap.has(item)) arr[index] = roundedMap.get(item)
       })
 
       return textArr.join('')
