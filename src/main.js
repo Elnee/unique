@@ -21,7 +21,7 @@ new Vue({
     options: [
       { text: 'Crossed text', value: 'modCrossed' },
       { text: 'Upside Down text', value: 'modUpsideDown' },
-      { text: 'Fullwidth', value: 'modFullwidth' },
+      { text: 'Fullwidth (bold)', value: 'modFullwidthBold' },
       { text: 'Rounded', value: 'modRounded' }
     ]
   },
@@ -109,7 +109,7 @@ new Vue({
 
       return reversed.join('')
     },
-    modFullwidth: function() {
+    modFullwidthBold: function() {
       let textArr = this.text.split('')
       
       // Create map of fullwidth symbols
