@@ -15,7 +15,7 @@
         {{ option.text }}
       </option>
     </select>
-    <input v-model="text" type="text"> 
+    <input v-model="text" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"> 
     <span>{{modifiedText}}</span>
     <button @click="copy">Copy</button>
   </div>
