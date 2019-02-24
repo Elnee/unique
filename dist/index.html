@@ -10,12 +10,12 @@
     <p>Unique</p>
   </header>
   <div id="app">
+    <input id="text" v-model="text" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"> 
     <select v-model="currentMod">
       <option v-for="option in options" :value="option.value">
         {{ option.text }}
       </option>
     </select>
-    <input v-model="text" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"> 
     <span>{{modifiedText}}</span>
     <button @click="copy">Copy</button>
   </div>
