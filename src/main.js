@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import maps from './maps.js'
+import './style.sass'
 
 // Function to copy text
 function copyText(text) {
