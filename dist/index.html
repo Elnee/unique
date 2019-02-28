@@ -10,14 +10,14 @@
     <p>Unique</p>
   </header>
   <div id="app">
-    <input id="text" v-model="text" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"> 
-    <select v-model="currentMod">
+    <input class="text" v-model="text" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"> 
+    <select class="modifier" v-model="currentMod">
       <option v-for="option in options" :value="option.value">
         {{ option.text }}
       </option>
     </select>
-    <span>{{modifiedText}}</span>
-    <button @click="copy">Copy</button>
+    <p class="modified-text">{{modifiedText}}</p>
+    <button class="copy" @click="copy">Copy</button>
   </div>
   <script src="bundle.js"></script>
 </body>
