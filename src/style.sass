@@ -16,13 +16,21 @@ header
     margin: 0 0 15px 0
     padding: 10px 0 10px 0
 
+div#app
+  margin-top: 50%
+  transform: translate(0, -50%)
+
+@media (orientation: landscape)
+  div#app
+    margin-top: 0
+    transform: none
+
 input.text
   display: inline-block
   width: calc(100% - 1vw)
   border: 0
   border-bottom: 1.5px solid #dcdcdc
 
-  margin-top: 5vw
   padding: 0.5vw
 
   font-size: 1.5em
@@ -59,7 +67,7 @@ button.copy
   outline: none
 
   border-style: solid
-  border-width: 0px 0px 2px 0px
+  border-width: 2px 0px 2px 0px
   border-color: #dcdcdc
 
   $radius: 15px
