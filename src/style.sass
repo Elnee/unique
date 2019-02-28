@@ -20,7 +20,7 @@ input.text
   display: inline-block
   width: calc(100% - 1vw)
   border: 0
-  border-bottom: 1.5px solid black
+  border-bottom: 1.5px solid #dcdcdc
 
   margin-top: 5vw
   padding: 0.5vw
@@ -39,7 +39,8 @@ select.modifier
   background-color: white 
 
   border-style: solid
-  border-width: 0px 0px 1px 0px
+  border-color: #dcdcdc
+  border-width: 0px 0px 2px 0px
   outline: none
   
   margin: 0
@@ -53,3 +54,26 @@ p.modified-text
 
 button.copy
   display: block
+  width: 100%
+
+  outline: none
+
+  border-style: solid
+  border-width: 0px 0px 2px 0px
+  border-color: #dcdcdc
+
+  $radius: 15px
+  border-bottom-right-radius: $radius
+  border-bottom-left-radius: $radius
+
+  background-color: white
+
+  font-size: 1em
+  font-family: 'Raleway', sans-serif
+  text-transform: uppercase
+
+  transition: font-size, 0.5s
+
+  &:hover
+    font-size: 1.1em
+
