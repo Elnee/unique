@@ -29,6 +29,11 @@ new Vue({
   },
   created: function() {
     this[this.currentMod]()
+
+    // Check user agent for Android Chrome fix
+    if (navigator.userAgent.indexOf('Android') != -1) {
+      document.querySelector('#app').style.minHeight = 'calc(100vh - 56px)'
+    }
   },
   methods: {
     // Modifiers
