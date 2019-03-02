@@ -24,6 +24,7 @@ new Vue({
       { text: 'Crossed text', value: 'modCrossed' },
       { text: 'Upside Down text', value: 'modUpsideDown' },
       { text: 'Fullwidth (bold)', value: 'modFullwidthBold' },
+      { text: 'Fullwidth (thin)', value: 'modFullwidthThin' },
       { text: 'Rounded', value: 'modRounded' }
     ]
   },
@@ -56,9 +57,17 @@ new Vue({
     modFullwidthBold: function() {
       let textArr = this.text.split('')
 
-      // Replace characters with their fullwidth equialents
       textArr.forEach((item, index, arr) => {
         if (maps.fwMap.has(item)) arr[index] = maps.fwMap.get(item)
+      })
+
+      return textArr.join('')
+    },
+    modFullwidthThin: function() {
+      let textArr = this.text.split('')
+
+      textArr.forEach((item, index, arr) => {
+        if (maps.fwThinMap.has(item)) arr[index] = maps.fwThinMap.get(item)
       })
 
       return textArr.join('')
@@ -66,7 +75,6 @@ new Vue({
     modRounded: function() {
       let textArr = this.text.split('')
 
-      // Replace characters with their rounded alternatives
       textArr.forEach((item, index, arr) => {
         if (maps.roundedMap.has(item)) arr[index] = maps.roundedMap.get(item)
       })
