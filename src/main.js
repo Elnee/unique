@@ -58,7 +58,7 @@ new Vue({
       let textArr = this.text.split('')
 
       textArr.forEach((item, index, arr) => {
-        if (maps.fwMap.has(item)) arr[index] = maps.fwMap.get(item)
+        if (maps.fwBoldMap.has(item)) arr[index] = maps.fwBoldMap.get(item)
       })
 
       return textArr.join('')
