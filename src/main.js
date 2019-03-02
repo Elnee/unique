@@ -19,7 +19,7 @@ new Vue({
   el: '#app',
   data: {
     currentMod: 'modCrossed',
-    text: 'Some placeholder',
+    text: 'Write text here...',
     options: [
       { text: 'Crossed text', value: 'modCrossed' },
       { text: 'Upside Down text', value: 'modUpsideDown' },
