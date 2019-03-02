@@ -22,6 +22,7 @@ new Vue({
     text: 'Write text here...',
     options: [
       { text: 'Crossed text', value: 'modCrossed' },
+      { text: 'Circled', value: 'modCircled' },
       { text: 'Upside Down text', value: 'modUpsideDown' },
       { text: 'Fullwidth (bold)', value: 'modFullwidthBold' },
       { text: 'Fullwidth (thin)', value: 'modFullwidthThin' },
@@ -42,6 +43,15 @@ new Vue({
       if (this.text === "") return ""
       if (this.text.length === 1) return this.text + "\u0336"
       else return this.text.split("").join("\u0336")
+    },
+    modCircled: function() {
+      let textArr = this.text.split('')
+
+      textArr.forEach((item, index, arr) => {
+        if (maps.circledMap.has(item)) arr[index] = maps.circledMap.get(item)
+      })
+
+      return textArr.join('')
     },
     modUpsideDown: function() {
       let reversed = this.text.split('').reverse().join('')
