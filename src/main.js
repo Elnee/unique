@@ -26,7 +26,7 @@ new Vue({
       { text: 'Circled (neg)', value: 'modCircledNeg' },
       { text: 'Upside Down text', value: 'modUpsideDown' },
       { text: 'Fullwidth (bold)', value: 'modFullwidthBold' },
-      { text: 'Fullwidth (thin)', value: 'modFullwidthThin' },
+      { text: 'Math monospace', value: 'modMathMono' },
       { text: 'Rounded', value: 'modRounded' }
     ]
   },
@@ -83,11 +83,11 @@ new Vue({
 
       return textArr.join('')
     },
-    modFullwidthThin: function() {
+    modMathMono: function() {
       let textArr = this.text.split('')
 
       textArr.forEach((item, index, arr) => {
-        if (maps.fwThinMap.has(item)) arr[index] = maps.fwThinMap.get(item)
+        if (maps.mathMono.has(item)) arr[index] = maps.mathMono.get(item)
       })
 
       return textArr.join('')
