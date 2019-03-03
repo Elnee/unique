@@ -27,6 +27,7 @@ new Vue({
       { text: 'Upside Down text', value: 'modUpsideDown' },
       { text: 'Fullwidth (bold)', value: 'modFullwidthBold' },
       { text: 'Math monospace', value: 'modMathMono' },
+      { text: 'Math bold', value: 'modMathBold' },
       { text: 'Rounded', value: 'modRounded' }
     ]
   },
@@ -88,6 +89,15 @@ new Vue({
 
       textArr.forEach((item, index, arr) => {
         if (maps.mathMono.has(item)) arr[index] = maps.mathMono.get(item)
+      })
+
+      return textArr.join('')
+    },
+    modMathBold: function() {
+      let textArr = this.text.split('')
+
+      textArr.forEach((item, index, arr) => {
+        if (maps.mathBold.has(item)) arr[index] = maps.mathBold.get(item)
       })
 
       return textArr.join('')
