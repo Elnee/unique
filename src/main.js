@@ -23,6 +23,7 @@ new Vue({
     options: [
       { text: 'Crossed text', value: 'modCrossed' },
       { text: 'Circled', value: 'modCircled' },
+      { text: 'Circled (neg)', value: 'modCircledNeg' },
       { text: 'Upside Down text', value: 'modUpsideDown' },
       { text: 'Fullwidth (bold)', value: 'modFullwidthBold' },
       { text: 'Fullwidth (thin)', value: 'modFullwidthThin' },
@@ -49,6 +50,15 @@ new Vue({
 
       textArr.forEach((item, index, arr) => {
         if (maps.circledMap.has(item)) arr[index] = maps.circledMap.get(item)
+      })
+
+      return textArr.join('')
+    },
+    modCircledNeg: function() {
+      let textArr = this.text.split('')
+
+      textArr.forEach((item, index, arr) => {
+        if (maps.circledMapNeg.has(item)) arr[index] = maps.circledMapNeg.get(item)
       })
 
       return textArr.join('')
