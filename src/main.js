@@ -28,6 +28,7 @@ new Vue({
       { text: 'Fullwidth (bold)', value: 'modFullwidthBold' },
       { text: 'Math monospace', value: 'modMathMono' },
       { text: 'Math bold', value: 'modMathBold' },
+      { text: 'Math bold Fraktur', value: 'modMathBoldFraktur' },
       { text: 'Rounded', value: 'modRounded' }
     ]
   },
@@ -98,6 +99,15 @@ new Vue({
 
       textArr.forEach((item, index, arr) => {
         if (maps.mathBold.has(item)) arr[index] = maps.mathBold.get(item)
+      })
+
+      return textArr.join('')
+    },
+    modMathBoldFraktur: function() {
+      let textArr = this.text.split('')
+
+      textArr.forEach((item, index, arr) => {
+        if (maps.mathBoldFraktur.has(item)) arr[index] = maps.mathBoldFraktur.get(item)
       })
 
       return textArr.join('')
