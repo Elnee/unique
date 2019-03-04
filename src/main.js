@@ -29,6 +29,7 @@ new Vue({
       { text: 'Math monospace', value: 'modMathMono' },
       { text: 'Math bold', value: 'modMathBold' },
       { text: 'Math bold Fraktur', value: 'modMathBoldFraktur' },
+      { text: 'Math bold italic', value: 'modMathBoldItalic' },
       { text: 'Rounded', value: 'modRounded' }
     ]
   },
@@ -108,6 +109,15 @@ new Vue({
 
       textArr.forEach((item, index, arr) => {
         if (maps.mathBoldFraktur.has(item)) arr[index] = maps.mathBoldFraktur.get(item)
+      })
+
+      return textArr.join('')
+    },
+    modMathBoldItalic: function() {
+      let textArr = this.text.split('')
+
+      textArr.forEach((item, index, arr) => {
+        if (maps.mathBoldItalic.has(item)) arr[index] = maps.mathBoldItalic.get(item)
       })
 
       return textArr.join('')
