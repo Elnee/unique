@@ -2,18 +2,6 @@ import Vue from 'vue'
 import maps from './maps.js'
 import './style.sass'
 
-// Function to copy text
-function copyText(text) {
-  let tempInput = document.createElement('input')
-  tempInput.type = 'text'
-  tempInput.value = text
-  document.body.appendChild(tempInput)
-  tempInput.select()
-  document.execCommand('Copy')
-  document.body.removeChild(tempInput)
-  alert('Copied!')
-}
-
 // Application
 new Vue({
   el: '#app',
@@ -22,16 +10,16 @@ new Vue({
     text: 'Write text here...',
     options: [
       { text: 'Crossed text', value: 'modCrossed' },
-      { text: 'Circled', value: 'modCircled' },
-      { text: 'Circled (neg)', value: 'modCircledNeg' },
       { text: 'Upside Down text', value: 'modUpsideDown' },
-      { text: 'Fullwidth (bold)', value: 'modFullwidthBold' },
-      { text: 'Math monospace', value: 'modMathMono' },
-      { text: 'Math bold', value: 'modMathBold' },
-      { text: 'Math bold Fraktur', value: 'modMathBoldFraktur' },
-      { text: 'Math bold italic', value: 'modMathBoldItalic' },
-      { text: 'Math bold script', value: 'modMathBoldScript' },
-      { text: 'Rounded', value: 'modRounded' }
+      { text: 'Circled', value: 'mapmodCircled' },
+      { text: 'Circled (neg)', value: 'mapmodCircledNeg' },
+      { text: 'Fullwidth', value: 'mapmodFullwidth' },
+      { text: 'Math monospace', value: 'mapmodMathMono' },
+      { text: 'Math bold', value: 'mapmodMathBold' },
+      { text: 'Math bold Fraktur', value: 'mapmodMathBoldFraktur' },
+      { text: 'Math bold italic', value: 'mapmodMathBoldItalic' },
+      { text: 'Math bold script', value: 'mapmodMathBoldScript' },
+      { text: 'Rounded', value: 'mapmodRounded' }
     ]
   },
   created: function() {
@@ -49,105 +37,44 @@ new Vue({
       if (this.text.length === 1) return this.text + "\u0336"
       else return this.text.split("").join("\u0336")
     },
-    modCircled: function() {
-      let textArr = this.text.split('')
-
-      textArr.forEach((item, index, arr) => {
-        if (maps.circledMap.has(item)) arr[index] = maps.circledMap.get(item)
-      })
-
-      return textArr.join('')
-    },
-    modCircledNeg: function() {
-      let textArr = this.text.split('')
-
-      textArr.forEach((item, index, arr) => {
-        if (maps.circledMapNeg.has(item)) arr[index] = maps.circledMapNeg.get(item)
-      })
-
-      return textArr.join('')
-    },
     modUpsideDown: function() {
-      let reversed = this.text.split('').reverse().join('')
-      
-      // Replace characters with their upside down alternatives
-      reversed = reversed.split('')
-      reversed.forEach((item, index, arr) => {
-        if (maps.usdMap.has(item)) arr[index] = maps.usdMap.get(item)
-      })
-
-      return reversed.join('')
+      return this.mapTextTo('upsideDown').split('').reverse().join('')
     },
-    modFullwidthBold: function() {
+    mapTextTo: function(mapname) {
       let textArr = this.text.split('')
 
       textArr.forEach((item, index, arr) => {
-        if (maps.fwBoldMap.has(item)) arr[index] = maps.fwBoldMap.get(item)
-      })
-
-      return textArr.join('')
-    },
-    modMathMono: function() {
-      let textArr = this.text.split('')
-
-      textArr.forEach((item, index, arr) => {
-        if (maps.mathMono.has(item)) arr[index] = maps.mathMono.get(item)
-      })
-
-      return textArr.join('')
-    },
-    modMathBold: function() {
-      let textArr = this.text.split('')
-
-      textArr.forEach((item, index, arr) => {
-        if (maps.mathBold.has(item)) arr[index] = maps.mathBold.get(item)
-      })
-
-      return textArr.join('')
-    },
-    modMathBoldFraktur: function() {
-      let textArr = this.text.split('')
-
-      textArr.forEach((item, index, arr) => {
-        if (maps.mathBoldFraktur.has(item)) arr[index] = maps.mathBoldFraktur.get(item)
-      })
-
-      return textArr.join('')
-    },
-    modMathBoldItalic: function() {
-      let textArr = this.text.split('')
-
-      textArr.forEach((item, index, arr) => {
-        if (maps.mathBoldItalic.has(item)) arr[index] = maps.mathBoldItalic.get(item)
-      })
-
-      return textArr.join('')
-    },
-    modMathBoldScript: function() {
-      let textArr = this.text.split('')
-
-      textArr.forEach((item, index, arr) => {
-        if (maps.mathBoldScript.has(item)) arr[index] = maps.mathBoldScript.get(item)
-      })
-
-      return textArr.join('')
-    },
-    modRounded: function() {
-      let textArr = this.text.split('')
-
-      textArr.forEach((item, index, arr) => {
-        if (maps.roundedMap.has(item)) arr[index] = maps.roundedMap.get(item)
+        if (maps[mapname].has(item)) arr[index] = maps[mapname].get(item)
       })
 
       return textArr.join('')
     },
     copy: function() {
-      copyText(this.modifiedText)
+      let tempInput = document.createElement('input')
+      tempInput.type = 'text'
+      tempInput.value = this.modifiedText
+      document.body.appendChild(tempInput)
+      tempInput.select()
+      document.execCommand('Copy')
+      document.body.removeChild(tempInput)
+      alert('Copied!')
     }
   },
   computed: {
     modifiedText: function() {
+      if (this.currentMod.indexOf('mapmod') != -1) {
+        /* Convert select values to appropriate map names
+         * For example: mapmodCircledNeg -> circledNeg
+         * Just get first character after 'mapmod' (6) prefix
+         * and turn it to lower case. Then get the rest of 
+         * the line (starts from index 7).
+         */
+        let mapName = this.currentMod.charAt(6).toLowerCase()
+        mapName += this.currentMod.slice(7)
+        return this.mapTextTo(mapName)
+      }
       return this[this.currentMod]()
     }
   }
 })
+
