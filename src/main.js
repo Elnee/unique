@@ -30,6 +30,7 @@ new Vue({
       { text: 'Math bold', value: 'modMathBold' },
       { text: 'Math bold Fraktur', value: 'modMathBoldFraktur' },
       { text: 'Math bold italic', value: 'modMathBoldItalic' },
+      { text: 'Math bold script', value: 'modMathBoldScript' },
       { text: 'Rounded', value: 'modRounded' }
     ]
   },
@@ -118,6 +119,15 @@ new Vue({
 
       textArr.forEach((item, index, arr) => {
         if (maps.mathBoldItalic.has(item)) arr[index] = maps.mathBoldItalic.get(item)
+      })
+
+      return textArr.join('')
+    },
+    modMathBoldScript: function() {
+      let textArr = this.text.split('')
+
+      textArr.forEach((item, index, arr) => {
+        if (maps.mathBoldScript.has(item)) arr[index] = maps.mathBoldScript.get(item)
       })
 
       return textArr.join('')
