@@ -19,6 +19,8 @@ new Vue({
       { text: 'Math bold Fraktur', value: 'mapmodMathBoldFraktur' },
       { text: 'Math bold italic', value: 'mapmodMathBoldItalic' },
       { text: 'Math bold script', value: 'mapmodMathBoldScript' },
+      { text: 'Math double-struck', value: 'mapmodMathDoubleStruck' },
+      { text: 'Math sans', value: 'mapmodMathSans' },
       { text: 'Rounded', value: 'mapmodRounded' }
     ]
   },
