@@ -24,6 +24,7 @@ new Vue({
       { text: 'Math sans bold', value: 'mapmodMathSansBold' },
       { text: 'Math sans italic', value: 'mapmodMathSansItalic' },
       { text: 'Math sans bold italic', value: 'mapmodMathSansBoldItalic' },
+      { text: 'Parenthesized', value: 'mapmodParenthesized' },
       { text: 'Rounded', value: 'mapmodRounded' }
     ]
   },
