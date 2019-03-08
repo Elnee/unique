@@ -22,6 +22,7 @@ new Vue({
       { text: 'Math double-struck', value: 'mapmodMathDoubleStruck' },
       { text: 'Math sans', value: 'mapmodMathSans' },
       { text: 'Math sans bold', value: 'mapmodMathSansBold' },
+      { text: 'Math sans bold italic', value: 'mapmodMathSansBoldItalic' },
       { text: 'Rounded', value: 'mapmodRounded' }
     ]
   },
