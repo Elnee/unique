@@ -11,11 +11,11 @@ module.exports = {
   devServer: {
     host: '0.0.0.0',
     port: 8080,
-    contentBase: './dist'
+    contentBase: './'
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname)
   },
   module: {
     rules: [{
