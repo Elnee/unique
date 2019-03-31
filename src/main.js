@@ -26,7 +26,8 @@ new Vue({
       { text: 'Math sans bold italic', value: 'mapmodMathSansBoldItalic' },
       { text: 'Parenthesized', value: 'mapmodParenthesized' },
       { text: 'Squared', value: 'mapmodSquared' },
-      { text: 'Rounded', value: 'mapmodRounded' }
+      { text: 'Rounded', value: 'mapmodRounded' },
+      { text: 'CJK Thai', value: 'mapmodCjkThai' }
     ]
   },
   created: function() {
